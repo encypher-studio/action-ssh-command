@@ -3,19 +3,21 @@ description: "Run a command via SSH"
 inputs:
   host:
     description: "SSH host address or IP to connect to."
-    default: ${{ vars.SSH_HOST }}
+    required: true
   port:
     description: "SSH port number for the connection."
-    default: ${{ vars.SSH_PORT }}
+    required: true
   username:
     description: "SSH username for authentication on the remote server."
     default: ${{ secrets.SSH_USER }}
+    required: true
   password:
     description: "SSH password for authentication (use secrets for sensitive data)."
     default: ${{ secrets.SSH_PASSWORD }}
+    required: true
   script:
     description: "Commands to execute on the remote server (inline script string)."
-    default: ${{ vars.SSH_COMMAND }}
+    required: true
 
   outputs:
     stdout:
